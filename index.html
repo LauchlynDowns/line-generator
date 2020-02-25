@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trippy.</title>
+    <style>
+        #overlay {
+            position: fixed;
+            width: 100%;
+            height: 5%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            z-index: 2;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onclick="call()" style="border: 0; margin: 0; overflow: hidden;">
+
+    <canvas style="background-color: black;" id="Tree" width="1920" height="1080"
+        style="border:1px solid #d3d3d3;"></canvas><br>
+
+
+
+
+    <div id="test"></div>
+    <div id="overlay"> <input id="myRange" type="range" min="100" max="1000">
+        <p style="color: white;">Speed: <span id="demo"></span></p>
+    </div>
+
+    <script>
+
+       
+
+        //listen for click event
+        function call() {
+            setInterval(function () { addbranch2() }, 1);
+        }
+
+        //get a random color for the line
+
+
+
+
+
+        function addbranch2() {
+
+
+            var xcord = getrandomnum(0, 1920);
+            var ycord = getrandomnum(0, 1080);
+            console.log("addbranch called");
+            var c = document.getElementById("Tree");
+            var ctx = c.getContext("2d");
+            ctx.strokeStyle = "#".concat(Math.floor(Math.random() * 16777215).toString(16));;
+            ctx.beginPath();
+            ctx.moveTo(910, 540);
+            ctx.lineTo(xcord, ycord);
+            ctx.stroke();
+
+        }
+
+
+
+
+
+        //get a random number between 250 and 500
+        function getrandomnum(min, max) {
+            real = Math.random() * (max - min) + min;
+            return Math.round(real);
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
